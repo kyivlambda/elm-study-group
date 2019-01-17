@@ -44,3 +44,55 @@ updateListKv old k f = Debug.todo ""
 [("bar", 2)]
 ```
 
+**updateArray**
+
+```elm
+updateArray : Array a -> (a -> Bool) -> (a -> b) -> Array b
+updateArray = Debug.todo ""
+```
+
+**keepOks**
+
+```elm
+keepOks : List (Result a b) -> List b
+keepOks e = Debug.todo ""
+```
+
+**mapOk**
+
+```elm
+mapOk : (b -> c) -> Result a b -> Result a c
+```
+
+**either**
+
+```elm
+either : (a -> c) -> (b -> d) -> Result a b -> Result c d
+```
+
+**maybe**
+
+```elm
+maybe : a -> (b -> a) -> Maybe b -> a
+```
+
+**updateUserProfileEmail**
+
+```elm
+type alias User =
+  { name : String
+  , profile : Maybe Profile
+  }
+
+type alias Profile =
+  { email : Maybe String
+  , avatar : Maybe String
+  }
+
+type alias Model =
+  { user : User }
+  
+updateUserProfileEmail : String -> Model -> Model
+updateUserProfileEmail email model = Debug.todo ""
+```
+
