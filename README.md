@@ -67,17 +67,17 @@
 **Week 1. Welcome to Elm**
 
 - Chapter 1
-- [Homework](./resources/homework-01)
+- [Homework](./resources/homework-01.md)
 
 **Week 2. Your First Elm Application**
 
 - Chapter 2
-- [Homework](./resources/homework-02)
+- [Homework](./resources/homework-02.md)
 
 **Week 3. Compiler and Assistant**
 
 - Chapter 3
-- [Homework](./resources/homework-03)
+- [Homework](./resources/homework-03.md)
 
 **Week 4. Talking to Servers**
 
