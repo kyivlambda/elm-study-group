@@ -60,6 +60,6 @@ True
 
 ```
 > clap "learning Elm is fun"
-learning 👏 Elm 👏 is 👏 fun
+"learning 👏 Elm 👏 is 👏 fun"
 ```
 
