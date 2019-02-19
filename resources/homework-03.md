@@ -21,7 +21,7 @@ find : (a -> Bool) -> List a -> Maybe a
 find f xss = Debug.todo ""
 ```
 
-``isJust``
+``**isJust**
 
 ```elm
 isJust : Maybe a -> Bool

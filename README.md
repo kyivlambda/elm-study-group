@@ -82,6 +82,7 @@
 **Week 4. Talking to Servers**
 
 - Chapter 4
+- [Homework](./resources/homework-04)
 
 **Week 5. Talking to JavaScript**
 
