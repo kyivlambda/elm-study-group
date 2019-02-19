@@ -42,17 +42,24 @@ Just 2
 True
 ```
 
-**Eliminate consecutive duplicates of list elements**
+**Eliminate consecutive duplicates of string elements**
 
 ```
 > compress "aaaabccaadeeee"
 "abcade"
 ```
 
-**Drop every N'th element from a list**
+**Drop every N'th element from a string**
 
 ```
 > dropEvery "abcdefghik" 3
 "abdeghk"
+```
+
+**(optional) Insert the 👏 emoji between words**
+
+```
+> clap "learning Elm is fun"
+learning 👏 Elm 👏 is 👏 fun
 ```
 
