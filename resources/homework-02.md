@@ -4,12 +4,12 @@
 
 ```elm
 convert 
-  : List { name : String, email : String} 
-  -> List { name : String, email : String} 
+  : List { name : String, email : String, phone_number : String}
+  -> List { name : String, email : String}
   = Debug.todo ""
 ```
 
-**Filter elements with non-empty name**
+**Filter elements with non-empty name and email**
 
 ```elm
 convert02 
@@ -18,7 +18,7 @@ convert02
   = Debug.todo ""
 ```
 
-**Fill in missing names with `<unspecified>`**
+**Fill in missing names with `<unspecified>`, while removing elements with no email**
 
 ```elm
 convert03 
