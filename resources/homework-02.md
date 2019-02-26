@@ -7,6 +7,8 @@ convert
   : List { name : String, email : String, phone_number : String}
   -> List { name : String, email : String}
   = Debug.todo ""
+> convert [{name="John", email="john@gmail.com", phone_number="+3801234567"}]
+[{name="John", email="john@gmail.com"}]
 ```
 
 **Filter elements with non-empty name and email**
@@ -16,15 +18,20 @@ convert02
   : List { name : Maybe String, email : Maybe String} 
   -> List { name : String, email : String} 
   = Debug.todo ""
+> convert02 [{name=Just "John", email=Just "john@gmail.com"}]
+[{name="John", email="john@gmail.com"}]
 ```
 
-**Fill in missing names with `<unspecified>`, while removing elements with no email**
+**Fill in missing names with `<unspecified>`, while removing elements
+with no email**
 
 ```elm
 convert03 
   : List { name : Maybe String, email : Maybe String} 
   -> List { name : String, email : String} 
   = Debug.todo ""
+> convert03 [{name=Just "John", email=Nothing}]
+[{name="John", email="<unspecified>"}]
 ```
 
 **Make a mini application, consisting of a textual input, and a button
