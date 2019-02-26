@@ -27,3 +27,9 @@ convert03
   = Debug.todo ""
 ```
 
+**Make a mini application, consisting of a textual input, and a button
+"send". Upon pressing a button, it must check whether the field is
+empty. If it is -- render red "value cannot be empty". If it isn't
+empty but has no `@` sign in it, render "email must contain a @
+sign". Otherwise -- render blue message "Email sent successfully"**
+
