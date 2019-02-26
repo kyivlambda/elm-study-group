@@ -56,10 +56,9 @@ True
 "abdeghk"
 ```
 
-**(optional) Insert the 👏 emoji between words**
+**(optional) Insert the emoji between words**
 
 ```
 > clap "learning Elm is fun"
 "learning 👏 Elm 👏 is 👏 fun"
 ```
-
