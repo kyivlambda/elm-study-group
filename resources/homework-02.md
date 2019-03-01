@@ -82,3 +82,9 @@ Make a mini application consisting of a textual input, and a button
 empty. If it is -- render red "value cannot be empty". If it isn't
 empty but has no `@` sign in it, render "email must contain a @
 sign". Otherwise -- render blue message "Email sent successfully"**
+
+**(optional) Eight Queens**
+
+Very famous Eight Queens Problem. Please see
+https://johncrane.gitbooks.io/ninety-nine-elm-problems/content/p/p90.html
+for details.
