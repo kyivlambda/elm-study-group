@@ -53,7 +53,7 @@ mapMaybes = Debug.todo ""
 
 **catMaybes**
 
-```
+```elm
 catMaybes : List (Maybe a) -> List a
 catMaybes = Debug.todo ""
 ```
