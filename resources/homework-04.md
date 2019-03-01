@@ -1,10 +1,7 @@
 # Homework Week 4
 
 
-
-TODO: `<|`
-
 TODO: `Json.Decode.Pipeline`
 
-TODO: `Result`
-
+TODO: Applicative-like stuff with Maybe
+TODO: Applicative-like stuff with Json
