@@ -70,6 +70,18 @@ mapOk : (b -> c) -> Result a b -> Result a c
 either : (a -> c) -> (b -> d) -> Result a b -> Result c d
 ```
 
+**TODO: Implement `parseDate`. **
+
+Do `elm install justinmimbs/date` to get the package.
+
+```elm
+import Date exposing (Date)
+
+parseDate : Maybe String -> Maybe Date
+parseDate v =
+    Debug.todo ""
+```
+
 **maybe**
 
 ```elm
