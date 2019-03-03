@@ -110,13 +110,9 @@ https://myapi.com/api/item/12/stats.json?start_date=2019-01-01&num_items=10
 
 See if using catMaybes would help as number of GET-parameters will grow
 
-**Make a mini application**
+**Temperature converter**
 
-Make a mini application consisting of a textual input, and a button
-"send". Upon pressing a button, it must check whether the field is
-empty. If it is -- render red "value cannot be empty". If it isn't
-empty but has no `@` sign in it, render "email must contain a @
-sign". Otherwise -- render blue message "Email sent successfully"**
+Implement "Temperature Converter" from 7GYUs as described in https://eugenkiss.github.io/7guis/tasks
 
 **(optional) Eight Queens**
 
