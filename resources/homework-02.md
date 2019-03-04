@@ -22,8 +22,8 @@ convert02 = Debug.todo ""
 [{name="John", email="john@gmail.com"}]
 ```
 
-**Fill in missing names with `<unspecified>`, while removing elements
-with no email**
+**Fill in missing emails with `<unspecified>`, while removing elements
+with no name**
 
 ```elm
 convert03 
@@ -100,11 +100,11 @@ buildStatsUrl : Int -> { startDate : Maybe String, numElems : Maybe Int } -> Str
 buildStatsUrl itemId ps =
   Debug.todo ""
 
-> buildStatsUrl 12 Nothing Nothing
+> buildStatsUrl 12 {startDate=Nothing, numElems=Nothing}
 https://myapi.com/api/item/12/stats.json
-> buildStatsUrl 12 (Just "2019-01-01") Nothing
+> buildStatsUrl 12 {startDate=Just "2019-01-01", numElems=Nothing}
 https://myapi.com/api/item/12/stats.json?start_date=2019-01-01
-> buildStatsUrl 12 (Just "2019-01-01") (Just 10)
+> buildStatsUrl 12 {startDate=Just "2019-01-01", numElems=Just 10}
 https://myapi.com/api/item/12/stats.json?start_date=2019-01-01&num_items=10
 ```
 
