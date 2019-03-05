@@ -72,11 +72,6 @@ setPhone = Debug.todo ""
 **mapMaybes**
 
 ```elm
-isJust x =
-  case x of
-    Nothing -> False
-    _ -> True
-
 mapMaybes : (a -> Maybe b) -> List a -> List b
 mapMaybes = Debug.todo ""
 
