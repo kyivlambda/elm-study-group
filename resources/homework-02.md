@@ -29,7 +29,7 @@ with no name**
 convert03 
   : List { name : Maybe String, email : Maybe String} 
   -> List { name : String, email : String} 
-  = Debug.todo ""
+convert03 = Debug.todo ""
 > convert03 [{name=Just "John", email=Nothing}]
 [{name="John", email="<unspecified>"}]
 ```
@@ -67,6 +67,7 @@ setPhone = Debug.todo ""
 
 > setPhone "+123456" { profile = { address = { phone = "+654321" } } }
 { profile = { address = { phone = "+123456" } } }
+```
 
 **mapMaybes**
 
