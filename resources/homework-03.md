@@ -5,9 +5,16 @@
 ```elm
 maybeToList : Maybe a -> List a
 maybeToList x = Debug.todo ""
+
+> maybeToList (Just 3)
+[3]
+> maybeToList Nothing
+[]
 ```
 
 **updateList**
+
+Change or remove element if it matches the `shouldChange` test.
 
 ```elm
 updateList : (a -> Bool) -> (a -> Maybe a) -> List a -> List a
@@ -19,13 +26,6 @@ updateList shouldChange f xs = Debug.todo ""
 ```elm
 find : (a -> Bool) -> List a -> Maybe a
 find f xss = Debug.todo ""
-```
-
-``**isJust**
-
-```elm
-isJust : Maybe a -> Bool
-isJust v = Debug.todo ""
 ```
 
 **Implement updateListKv**
@@ -70,9 +70,10 @@ mapOk : (b -> c) -> Result a b -> Result a c
 either : (a -> c) -> (b -> d) -> Result a b -> Result c d
 ```
 
-**TODO: Implement `parseDate`. **
+**Implement `parseDate`**
 
-Do `elm install justinmimbs/date` to get the package.
+Do `elm install justinmimbs/date` to get the package. Use
+`Date.fromIsoString`.
 
 ```elm
 import Date exposing (Date)
@@ -88,23 +89,11 @@ parseDate v =
 maybe : a -> (b -> a) -> Maybe b -> a
 ```
 
-**updateUserProfileEmail**
+**Timer**
 
-```elm
-type alias User =
-  { name : String
-  , profile : Maybe Profile
-  }
+Implement "Timer" from http://eugenkiss.github.io/7guis/tasks/
 
-type alias Profile =
-  { email : Maybe String
-  , avatar : Maybe String
-  }
+**(optional) Graceful Labeling**
 
-type alias Model =
-  { user : User }
-  
-updateUserProfileEmail : String -> Model -> Model
-updateUserProfileEmail email model = Debug.todo ""
-```
-
+Graceful Labeling from
+https://johncrane.gitbooks.io/ninety-nine-elm-problems/content/p/p92.html
