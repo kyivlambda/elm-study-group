@@ -19,6 +19,11 @@ Change or remove element if it matches the `shouldChange` test.
 ```elm
 updateList : (a -> Bool) -> (a -> Maybe a) -> List a -> List a
 updateList shouldChange f xs = Debug.todo ""
+
+> updateList (\x -> x == 3) (\v -> Just (v + 1)) [1,3,5]
+[1,4,5] : List number
+> updateList (\x -> x == 3) (\v -> Nothing) [1,3,5]
+[1,5] : List number
 ```
 
 **find**
