@@ -58,19 +58,34 @@ updateListKv old k f = Debug.todo ""
 
 ```elm
 keepOks : List (Result a b) -> List b
-keepOks e = Debug.todo ""
+keepOks xss = Debug.todo ""
+
+> keepOks [Ok 1, Err "bad", Ok 2]
+[1,2] : List number
 ```
 
 **mapOk**
 
 ```elm
 mapOk : (b -> c) -> Result a b -> Result a c
+mapOk f res = Debug.todo ""
+
+> mapOk (\x -> x + 1) (Ok 2)
+Ok 3 : Result a number
+> mapOk (\x -> x + 1) (Err "str")
+Err "str" : Result String number
 ```
 
 **either**
 
 ```elm
-either : (a -> c) -> (b -> d) -> Result a b -> Result c d
+either : (a -> c) -> (b -> c) -> Result a b -> c
+either fa fb res = Debug.todo
+
+> either (\x -> x + 1) (\x -> x - 1) (Ok 1)
+0 : number
+> either (\x -> x + 1) (\x -> x - 1) (Err 1)
+2 : number
 ```
 
 **Implement `parseDate`**
