@@ -31,6 +31,11 @@ updateList shouldChange f xs = Debug.todo ""
 ```elm
 find : (a -> Bool) -> List a -> Maybe a
 find f xss = Debug.todo ""
+
+> find (\x -> x == 2) [1,3,5,2]
+Just 2 : Maybe number
+> find (\x -> x == 2) [1,3,5]
+Nothing : Maybe number
 ```
 
 **Implement updateListKv**
@@ -47,13 +52,6 @@ updateListKv old k f = Debug.todo ""
 [("foo", 2), ("bar", 2)]
 > updateListKv [("foo", 1), ("bar", 2)] "foo" (\x -> Nothing)
 [("bar", 2)]
-```
-
-**updateArray**
-
-```elm
-updateArray : Array a -> (a -> Bool) -> (a -> b) -> Array b
-updateArray = Debug.todo ""
 ```
 
 **keepOks**
