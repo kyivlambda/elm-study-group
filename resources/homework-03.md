@@ -101,12 +101,6 @@ parseDate v =
     Debug.todo ""
 ```
 
-**maybe**
-
-```elm
-maybe : a -> (b -> a) -> Maybe b -> a
-```
-
 **Timer**
 
 Implement "Timer" from http://eugenkiss.github.io/7guis/tasks/
