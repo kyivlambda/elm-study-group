@@ -138,6 +138,12 @@ Some additional notes:
   ```elm
   ...
 
+  type Msg =
+    ...
+    | TimeUpdate Time.Posix
+
+  ...
+
   subscriptions : Model -> Sub Msg
   subscriptions model =
       Time.every 200.0 TimeUpdate
