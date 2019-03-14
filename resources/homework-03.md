@@ -30,7 +30,7 @@ updateList shouldChange f xs = Debug.todo ""
 
 ```elm
 find : (a -> Bool) -> List a -> Maybe a
-find f xss = Debug.todo ""
+find f xs = Debug.todo ""
 
 > find (\x -> x == 2) [1,3,5,2]
 Just 2 : Maybe number
@@ -58,7 +58,7 @@ updateListKv old k f = Debug.todo ""
 
 ```elm
 keepOks : List (Result a b) -> List b
-keepOks xss = Debug.todo ""
+keepOks xs = Debug.todo ""
 
 > keepOks [Ok 1, Err "bad", Ok 2]
 [1,2] : List number
@@ -110,7 +110,7 @@ Some additional notes:
 - see html at https://guide.elm-lang.org/interop/ used together with
   `elm make --output=out/YourApp.js` to compile to JS and be able to
   include CSS like bootstrap in your timer app
-- use the `Time` module from `elm/time` pacakge to get current time
+- use the `Time` module from `elm/time` package to get current time
   and subscribe to periodic updates
   https://package.elm-lang.org/packages/elm/time/1.0.0/Time
 - use `Task.perform` function to convert a `Task` into a command.
