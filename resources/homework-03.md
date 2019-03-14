@@ -105,6 +105,59 @@ parseDate v =
 
 Implement "Timer" from http://eugenkiss.github.io/7guis/tasks/
 
+Some additional notes:
+
+- see html at https://guide.elm-lang.org/interop/ used together with
+  `elm make --output=out/YourApp.js` to compile to JS and be able to
+  include CSS like bootstrap in your timer app
+- use the `Time` module from `elm/time` pacakge to get current time
+  and subscribe to periodic updates
+  https://package.elm-lang.org/packages/elm/time/1.0.0/Time
+- use `Task.perform` function to convert a `Task` into a command.
+  For example:
+
+  ```elm
+  import Time
+
+  type Msg
+    ...
+    | GotInitialTime Time.Posix
+
+  update : Msg -> Model -> ( Model, Cmd Msg )
+  update =
+    ...
+    ( model
+    , Task.perform GotInitialTime Time.now
+    )
+    ...
+  ```
+
+  See https://package.elm-lang.org/packages/elm/core/latest/Task
+- use subscription mechanism to subscribe to periodic time changes. For example:
+
+  ```elm
+  ...
+
+  type Msg =
+    ...
+    | TimeUpdate Time.Posix
+
+  ...
+
+  subscriptions : Model -> Sub Msg
+  subscriptions model =
+      Time.every 200.0 TimeUpdate
+
+  main : Program () Model Msg
+  main =
+      Browser.element
+          { init = init
+          , view = view
+          , update = update
+          , subscriptions = subscriptions
+          }
+  ```
+
 **(optional) Graceful Labeling**
 
 Graceful Labeling from
