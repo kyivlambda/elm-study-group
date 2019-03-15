@@ -18,6 +18,8 @@ $ curl -Ss -H 'Content-Type: application/json' -XPOST --data '{"name": "Valentyn
 {"name":"Valentyn","id":3,"surname":"Silvestrov"}
 ```
 
+Install `https://docs.haskellstack.org/en/stable/README/` and just run as `./crud.hs` (should be marked as executable).
+
 **Morse Code**
 
 Decode the Morse Code https://www.codewars.com/kata/decode-the-morse-code/elm
