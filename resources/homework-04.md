@@ -33,7 +33,7 @@ mottos =
       """
 
 
-type alias Record =
+type alias Mottos =
     { countries : List Country }
 
 
@@ -42,6 +42,9 @@ type alias Country =
     , motto : String
     , currency : String
     }
+
+decodeMottos : J.Decoder Mottos
+decodeMottos = Debug.todo ""
 ```
 
 **Date decoder**
