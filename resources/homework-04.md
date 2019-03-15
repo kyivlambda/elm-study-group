@@ -60,20 +60,6 @@ Ok (Posix 1538398080000)
   : Result J.Error Time.Posix
 ```
 
-**jsonPair**
-
-```elm
-jsonPair : J.Decoder a -> J.Decoder b -> J.Decoder ( a, b )
-jsonPair a b = Debug.todo ""
-
-> J.decodeString (jsonPair J.string J.string) "[\"Louee\", \"Baton\"]"
-Ok ("Louee","Baton")
-    : Result J.Error ( String, String )
-> J.decodeString (jsonPair J.string J.string) "[\"Louee\"]"
-Err (Failure ("Expecting a list of two elements") <internals>)
-    : Result J.Error ( String, String )
-```
-
 **Account info**
 
 Use pipeline method from `NoRedInk/elm-json-decode-pipeline` to decode this:
@@ -93,6 +79,20 @@ jsonDecAccountInfo = Debug.todo ""
 jsonEncAccountInfo : AccountInfo -> Value
 jsonEncAccountInfo val = Debug.todo ""
 
+```
+
+**jsonPair**
+
+```elm
+jsonPair : J.Decoder a -> J.Decoder b -> J.Decoder ( a, b )
+jsonPair a b = Debug.todo ""
+
+> J.decodeString (jsonPair J.string J.string) "[\"Louee\", \"Baton\"]"
+Ok ("Louee","Baton")
+    : Result J.Error ( String, String )
+> J.decodeString (jsonPair J.string J.string) "[\"Louee\"]"
+Err (Failure ("Expecting a list of two elements") <internals>)
+    : Result J.Error ( String, String )
 ```
 
 **CRUD (minimal scope)**
@@ -120,6 +120,6 @@ $ curl -Ss -H 'Content-Type: application/json' -XGET --data '{"name": "Valentyn"
 
 Install `https://docs.haskellstack.org/en/stable/README/` and just run as `./crud.hs` (should be marked as executable).
 
-**Morse Code**
+**(optional) Morse Code**
 
 Decode the Morse Code https://www.codewars.com/kata/decode-the-morse-code/elm
