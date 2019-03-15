@@ -15,7 +15,17 @@ Use `./crud.hs` (or make your own web-server) and make actual HTTP/JSON calls. I
 
 ```
 $ curl -Ss -H 'Content-Type: application/json' -XPOST --data '{"name": "Valentyn", "surname": "Silvestrov"}' localhost:8000/api/users/create.json
-{"name":"Valentyn","id":3,"surname":"Silvestrov"}
+{"name":"Valentyn","id":1,"surname":"Silvestrov"}
+$ curl -Ss -H 'Content-Type: application/json' -XGET --data '{"name": "Valentyn", "surname": "Silvestrov"}' localhost:8000/api/users/list.json
+[{"name":"Valentyn","id":1,"surname":"Silvestrov"}]
+$ curl -Ss -H 'Content-Type: application/json' -XPUT --data '{"name": "Valentyn Vasylyovych", "surname": "Silvestrov"}' localhost:8000/api/users/1/update.json
+{"name":"Valentyn Vasylyovych","id":1,"surname":"Silvestrov"}
+$ curl -Ss -H 'Content-Type: application/json' -XGET --data '{"name": "Valentyn", "surname": "Silvestrov"}' localhost:8000/api/users/list.json
+[{"name":"Valentyn Vasylyovych","id":1,"surname":"Silvestrov"}]
+$ curl -Ss -H 'Content-Type: application/json' -XDELETE localhost:8000/api/users/1/delete.json
+[]
+$ curl -Ss -H 'Content-Type: application/json' -XGET --data '{"name": "Valentyn", "surname": "Silvestrov"}' localhost:8000/api/users/list.json
+[]
 ```
 
 Install `https://docs.haskellstack.org/en/stable/README/` and just run as `./crud.hs` (should be marked as executable).

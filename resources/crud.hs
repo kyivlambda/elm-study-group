@@ -8,6 +8,7 @@
 
 import qualified Control.Concurrent.STM.TVar as TVar
 import Control.Concurrent.STM.TVar (TVar)
+import Control.Monad (forM)
 import Control.Monad.IO.Class (liftIO)
 import qualified Control.Monad.STM as STM
 import Control.Monad.Trans.Reader
@@ -23,17 +24,28 @@ import Servant
 import Servant.API.Generic ((:-), ToServantApi, genericApi)
 import Servant.Server.Generic (AsServerT, genericServerT)
 
+jsonOpts = J.defaultOptions {J.fieldLabelModifier = J.camelTo2 '_' . drop 3}
+
 data CreateUserForm = CreateUserForm
   { cufName :: Text
   , cufSurname :: Text
   } deriving (Show, Generic)
 
-jsonOpts = J.defaultOptions {J.fieldLabelModifier = J.camelTo2 '_' . drop 3}
-
 instance ToJSON CreateUserForm where
   toJSON = J.genericToJSON jsonOpts
 
 instance FromJSON CreateUserForm where
+  parseJSON = J.genericParseJSON jsonOpts
+
+data UpdateUserForm = UpdateUserForm
+  { uufName :: Text
+  , uufSurname :: Text
+  } deriving (Show, Generic)
+
+instance ToJSON UpdateUserForm where
+  toJSON = J.genericToJSON jsonOpts
+
+instance FromJSON UpdateUserForm where
   parseJSON = J.genericParseJSON jsonOpts
 
 data UserInfo = UserInfo
@@ -50,14 +62,31 @@ instance FromJSON UserInfo where
 
 data API route = API
   { _ping :: route :- "api" :> "ping" :> Get '[ PlainText] Text
+  , _listUsers :: route :- "api" :> "users" :> "list.json" :> Get '[ JSON] [UserInfo]
   , _createUser :: route :- "api" :> "users" :> "create.json" :> ReqBody '[ JSON] CreateUserForm :> Post '[ JSON] UserInfo
+  , _updateUser :: route :- "api" :> "users" :> Capture "user-id" UserId :> "update.json" :> ReqBody '[ JSON] UpdateUserForm :> Put '[ JSON] UserInfo
+  , _deleteUser :: route :- "api" :> "users" :> Capture "user-id" UserId :> "delete.json" :> Delete '[ JSON] ()
   } deriving (Generic)
 
 api :: Proxy (ToServantApi API)
 api = genericApi (Proxy :: Proxy API)
 
 server :: API (AsServerT AppM)
-server = API {_ping = pure "pong", _createUser = createUser}
+server =
+  API
+    { _ping = pure "pong"
+    , _listUsers = listUsers
+    , _createUser = createUser
+    , _updateUser = updateUser
+    , _deleteUser = deleteUser
+    }
+
+listUsers :: AppM [UserInfo]
+listUsers = do
+  env <- ask
+  users <- liftIO $ TVar.readTVarIO (envUsers env)
+  forM (Map.toList users) $ \(userId, User {..}) -> do
+    pure $ UserInfo userId usrName usrSurname
 
 createUser :: CreateUserForm -> AppM UserInfo
 createUser CreateUserForm {..} = do
@@ -71,6 +100,21 @@ createUser CreateUserForm {..} = do
       TVar.modifyTVar (envUsers env) (Map.insert c user)
       pure c
   pure $ UserInfo c cufName cufSurname
+
+updateUser :: UserId -> UpdateUserForm -> AppM UserInfo
+updateUser userId UpdateUserForm {..} = do
+  env <- ask
+  liftIO $
+    STM.atomically $ do
+      let user = User {usrName = uufName, usrSurname = uufSurname}
+      TVar.modifyTVar (envUsers env) (Map.insert userId user)
+  pure $ UserInfo userId uufName uufSurname
+
+deleteUser :: UserId -> AppM ()
+deleteUser userId = do
+  env <- ask
+  liftIO $
+    STM.atomically $ do TVar.modifyTVar (envUsers env) (Map.delete userId)
 
 type UserId = Int
 
