@@ -11,7 +11,7 @@ Implement CRUD from http://eugenkiss.github.io/7guis/tasks/ without server calls
 
 **CRUD (full scope)**
 
-Use `./crud.hs` (or make your own web-server) and make actual HTTP/JSON calls. It works like this:
+Use [crud.hs](./crud.hs) (or make your own, similar web-server) and make actual HTTP/JSON calls. It works like this:
 
 ```
 $ curl -Ss -H 'Content-Type: application/json' -XPOST --data '{"name": "Valentyn", "surname": "Silvestrov"}' localhost:8000/api/users/create.json
