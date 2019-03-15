@@ -118,7 +118,8 @@ $ curl -Ss -H 'Content-Type: application/json' -XGET --data '{"name": "Valentyn"
 []
 ```
 
-Install `https://docs.haskellstack.org/en/stable/README/` and just run as `./crud.hs` (should be marked as executable).
+Install stack via https://docs.haskellstack.org/en/stable/README/ and
+just run as `./crud.hs` (should be marked as executable).
 
 **(optional) Morse Code**
 
