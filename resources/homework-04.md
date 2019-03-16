@@ -122,8 +122,7 @@ $ curl -Ss -H 'Content-Type: application/json' \
     -XDELETE localhost:8000/api/users/1/delete.json
 []
 $ curl -Ss -H 'Content-Type: application/json' \
-    -XGET --data '{"name": "Valentyn", "surname": "Silvestrov"}' \
-    localhost:8000/api/users/list.json
+    -XGET localhost:8000/api/users/list.json
 []
 ```
 
