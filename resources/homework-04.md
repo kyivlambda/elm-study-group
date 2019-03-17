@@ -76,6 +76,7 @@ type alias AccountInfo  =
 jsonDecAccountInfo : Json.Decode.Decoder ( AccountInfo )
 jsonDecAccountInfo = Debug.todo ""
 
+-- optional (we'll learn how to encode values in feature weeks)
 jsonEncAccountInfo : AccountInfo -> Value
 jsonEncAccountInfo val = Debug.todo ""
 
