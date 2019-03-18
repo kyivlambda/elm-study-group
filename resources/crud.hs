@@ -20,6 +20,7 @@ import qualified Data.Text as T
 import Data.Text (Text)
 import GHC.Generics
 import qualified Network.Wai.Handler.Warp as Warp
+import Network.Wai.Middleware.Cors (simpleCors)
 import Servant
 import Servant.API.Generic ((:-), ToServantApi, genericApi)
 import Servant.Server.Generic (AsServerT, genericServerT)
@@ -142,9 +143,10 @@ main = do
   let env = Env tv counter
   Warp.run
     8000
-    (serve
-       (Proxy :: Proxy (ToServantApi API))
-       (hoistServer
+    (simpleCors
+       (serve
           (Proxy :: Proxy (ToServantApi API))
-          (nt env)
-          (genericServerT server)))
+          (hoistServer
+             (Proxy :: Proxy (ToServantApi API))
+             (nt env)
+             (genericServerT server))))
