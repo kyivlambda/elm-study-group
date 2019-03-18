@@ -66,6 +66,7 @@ data API route = API
   , _createUser :: route :- "api" :> "users" :> "create.json" :> ReqBody '[ JSON] CreateUserForm :> Post '[ JSON] UserInfo
   , _updateUser :: route :- "api" :> "users" :> Capture "user-id" UserId :> "update.json" :> ReqBody '[ JSON] UpdateUserForm :> Put '[ JSON] UserInfo
   , _deleteUser :: route :- "api" :> "users" :> Capture "user-id" UserId :> "delete.json" :> Delete '[ JSON] ()
+  , _static :: route :- Raw
   } deriving (Generic)
 
 api :: Proxy (ToServantApi API)
@@ -79,6 +80,7 @@ server =
     , _createUser = createUser
     , _updateUser = updateUser
     , _deleteUser = deleteUser
+    , _static = serveDirectoryFileServer "."
     }
 
 listUsers :: AppM [UserInfo]
