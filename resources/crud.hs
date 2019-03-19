@@ -138,6 +138,7 @@ nt s x = runReaderT x s
 
 main :: IO ()
 main = do
+  putStrLn "Launching on http://localhost:8000"
   tv <- STM.atomically $ TVar.newTVar (Map.fromList [])
   counter <- TVar.newTVarIO 1
   let env = Env tv counter

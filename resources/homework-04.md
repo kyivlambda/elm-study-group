@@ -129,7 +129,7 @@ $ curl -Ss -H 'Content-Type: application/json' \
 
 It serves current directory, so if your homework is in Homework.html,
 copy `crud.hs` to it, launch and open
-http://localhost:8000/Homework.html
+http://localhost:8000/ and choose Crud.html in it
 
 Install stack via https://docs.haskellstack.org/en/stable/README/ and
 just run as `./crud.hs` (should be marked as executable).
