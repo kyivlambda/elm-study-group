@@ -139,6 +139,7 @@ nt s x = runReaderT x s
 main :: IO ()
 main = do
   putStrLn "Launching on http://localhost:8000"
+  putStrLn "Put this script in directory with your html, it will be served. For example, if your homework is at Homework.html, you'll see it under http://localhost:8000/Homework.html"
   tv <- STM.atomically $ TVar.newTVar (Map.fromList [])
   counter <- TVar.newTVarIO 1
   let env = Env tv counter
