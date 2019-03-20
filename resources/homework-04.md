@@ -66,14 +66,14 @@ Use pipeline method from `NoRedInk/elm-json-decode-pipeline` to decode this:
 
 ```elm
 type alias AccountInfo  =
-   { id: Int
-   , email: String
-   , full_name: (Maybe String)
-   , phone_number: (Maybe String)
-   , info_complete: Bool
+   { id : Int
+   , email : String
+   , full_name : Maybe String
+   , phone_number : Maybe String
+   , info_complete : Bool
    }
 
-jsonDecAccountInfo : Json.Decode.Decoder ( AccountInfo )
+jsonDecAccountInfo : Json.Decode.Decoder AccountInfo
 jsonDecAccountInfo = Debug.todo ""
 
 -- optional (we'll learn how to encode values in future weeks)
