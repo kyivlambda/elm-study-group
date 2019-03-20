@@ -80,6 +80,12 @@ jsonDecAccountInfo = Debug.todo ""
 jsonEncAccountInfo : AccountInfo -> Value
 jsonEncAccountInfo val = Debug.todo ""
 
+> J.decodeString jsonDecAccountInfo (Json.Encode.encode 2 (jsonEncAccountInfo {id=1,email="foo@bar.com",full_name=Just "Full Name",phone_number=Just "+380731267381",info_complete=False}))
+Ok { email = "foo@bar.com", full_name = Just ("Full Name"), id = 1, info_complete = False, phone_number = Just "+380731267381" }
+    : Result J.Error AccountInfo
+> J.decodeString jsonDecAccountInfo "{\n  \"id\": 1,\n  \"email\": \"foo@bar.com\",\n  \"full_name\": \"Full Name\",\n  \"phone_number\": null,\n  \"info_complete\": false\n}"
+Ok { email = "foo@bar.com", full_name = Just ("Full Name"), id = 1, info_complete = False, phone_number = Nothing }
+    : Result J.Error AccountInfo
 ```
 
 **jsonPair**
