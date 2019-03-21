@@ -73,17 +73,17 @@ type alias AccountInfo  =
    , info_complete : Bool
    }
 
-jsonDecAccountInfo : Json.Decode.Decoder AccountInfo
-jsonDecAccountInfo = Debug.todo ""
+decodeAccountInfo : J.Decoder AccountInfo
+decodeAccountInfo = Debug.todo ""
 
 -- optional (we'll learn how to encode values in future weeks)
-jsonEncAccountInfo : AccountInfo -> Value
-jsonEncAccountInfo val = Debug.todo ""
+encodeAccountInfo : AccountInfo -> Json.Encode.Value
+encodeAccountInfo val = Debug.todo ""
 
-> J.decodeString jsonDecAccountInfo (Json.Encode.encode 2 (jsonEncAccountInfo {id=1,email="foo@bar.com",full_name=Just "Full Name",phone_number=Just "+380731267381",info_complete=False}))
+> J.decodeString decodeAccountInfo (Json.Encode.encode 2 (encodeAccountInfo {id=1,email="foo@bar.com",full_name=Just "Full Name",phone_number=Just "+380731267381",info_complete=False}))
 Ok { email = "foo@bar.com", full_name = Just ("Full Name"), id = 1, info_complete = False, phone_number = Just "+380731267381" }
     : Result J.Error AccountInfo
-> J.decodeString jsonDecAccountInfo "{\n  \"id\": 1,\n  \"email\": \"foo@bar.com\",\n  \"full_name\": \"Full Name\",\n  \"phone_number\": null,\n  \"info_complete\": false\n}"
+> J.decodeString decodeAccountInfo "{\n  \"id\": 1,\n  \"email\": \"foo@bar.com\",\n  \"full_name\": \"Full Name\",\n  \"phone_number\": null,\n  \"info_complete\": false\n}"
 Ok { email = "foo@bar.com", full_name = Just ("Full Name"), id = 1, info_complete = False, phone_number = Nothing }
     : Result J.Error AccountInfo
 ```
