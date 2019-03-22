@@ -1,34 +1,5 @@
 # Homework Week 5
 
-**Dependent parsing**
-
-Implement a decoder `decodePath`:
-
-```elm
-type Path = PathFile String
-          | PathUrl { host : String, port : Int }
-
-decodePath : Decoder Path
-decodePath = Debug.todo ""
-```
-
-for this structure:
-
-```json
-{"path_type": "file",
- "value": "/foo/bar"}
-```
-
-it would decode into `PathFile "/foo/bar"`, and this json:
-
-```json
-{"path_type": "file",
- "value": {"host": "http://example.com",
-           "port": 80}}
-```
-
-would be decoded as `PathUrl { host="http://example.com", port=80 }`
-
 **Write your own json package**
 
 On our last session, we've implemented our own package, similar to `elm/json`. We implemented our own `Val` type that looks like this:
@@ -89,6 +60,35 @@ Ok 4
 > decodeValue (myJsonField "foo" myJsonInt) (Obj [("foo", Num 4)])
 Ok 4
 ```
+
+**Dependent parsing**
+
+Implement a decoder `decodePath`:
+
+```elm
+type Path = PathFile String
+          | PathUrl { host : String, port : Int }
+
+decodePath : Decoder Path
+decodePath = Debug.todo ""
+```
+
+for this structure:
+
+```json
+{"path_type": "file",
+ "value": "/foo/bar"}
+```
+
+it would decode into `PathFile "/foo/bar"`, and this json:
+
+```json
+{"path_type": "file",
+ "value": {"host": "http://example.com",
+           "port": 80}}
+```
+
+would be decoded as `PathUrl { host="http://example.com", port=80 }`
 
 **Date picker**
 
