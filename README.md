@@ -82,19 +82,22 @@
 **Week 4. Talking to Servers**
 
 - Chapter 4
-- [Homework](./resources/homework-04)
+- [Homework](./resources/homework-04.md)
 
 **Week 5. Talking to JavaScript**
 
 - Chapter 5
+- [Homework](./resources/homework-05.md)
 
 **Week 6. Testing**
 
 - Chapter 6
+- [Homework](./resources/homework-06.md)
 
 **Week 7. Data Modeling**
 
 - Chapter 7
+- [Homework](./resources/homework-07.md)
 
 Дні зустрічей, час, та місце проведення може змінюватись в залежності від доступності місця.
 
