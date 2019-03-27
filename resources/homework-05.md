@@ -67,7 +67,7 @@ Implement a decoder `decodePath`:
 
 ```elm
 type Path = PathFile String
-          | PathUrl { host : String, port : Int }
+          | PathUrl { host : String, port_ : Int }
 
 decodePath : Decoder Path
 decodePath = Debug.todo ""
@@ -83,12 +83,12 @@ for this structure:
 it would decode into `PathFile "/foo/bar"`, and this json:
 
 ```json
-{"path_type": "file",
+{"path_type": "url",
  "value": {"host": "http://example.com",
            "port": 80}}
 ```
 
-would be decoded as `PathUrl { host="http://example.com", port=80 }`
+would be decoded as `PathUrl { host="http://example.com", port_=80 }`
 
 **Date picker**
 
